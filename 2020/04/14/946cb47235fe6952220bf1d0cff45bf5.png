@@ -1,0 +1,293 @@
+function Main0()
+SN = gg.choice({
+	 "全屏攻击🐎",
+	 "无敌蓝耗🐎",
+	 "攻击速度🐎",
+	 "地图穿墙🐎",
+	 "怪物不打🐎",
+	 "血量秒杀🐎",
+	 "退出脚本",
+}, nil, "作者QQ2407375486QQ")
+if SN==1 then
+	 Main1()
+end
+if SN==2 then
+	 Main16()
+end
+if SN==3 then
+	 Main4()
+end
+if SN==4 then
+	 Main22()
+end
+if SN==5 then
+	 Main24()
+end
+if SN==6 then
+	 Main30()
+end
+if SN==7 then
+	 HS15()
+end
+FX1=0
+end
+
+function Main1()
+SN = gg.choice({
+	 "全屏攻击🐎",
+	 "关闭全屏※",
+}, nil, "进游戏开，打完关闭，忘了关闭点一次公会在出来就行了")
+if SN==1 then
+	 HS24()
+end
+if SN==2 then
+	 HS25()
+end
+FX1=0
+end
+
+function HS24()
+	  gg.clearResults()
+	 gg.setRanges(8)
+	 gg.searchNumber("8474032D;0.0001F::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("0.0001", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("50.1239", gg.TYPE_FLOAT)
+	 gg.toast("开启成功")
+	 gg.clearResults()
+end
+
+function HS25()
+	 gg.clearResults()
+	 gg.setRanges(8)
+	 gg.searchNumber("8474032D;50.1239F::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("50.1239", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("0.0001", gg.TYPE_FLOAT)
+	 gg.toast("关闭成功")
+	 gg.clearResults()
+end
+
+function HS12()
+	 Main0()
+end
+
+function Main16()
+SN = gg.choice({
+	 "点我开启🐎无C D",
+	 "点我开启🐎无限蓝",
+	 "返回首页",
+}, nil, "先按一次技能在开功能")
+if SN==1 then
+	 HS6()
+end
+if SN==2 then
+	 HS20()
+end
+if SN==4 then
+	 HS21()
+end
+FX1=0
+end
+
+function HS6()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("45D;240D;1F", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("0", gg.TYPE_FLOAT)
+	 gg.toast("开启成功🐎没效果退了从新开")
+	 gg.clearResults()
+end
+
+function HS20()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("296D;1;4628D::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("-1", gg.TYPE_FLOAT)
+	 gg.toast("开启成功🐎没效果从新开")
+	 gg.clearResults()
+end
+
+
+function HS21()
+	 Main0()
+end
+
+function Main4()
+SN = gg.multiChoice({
+	 "射速🐎5",
+	 "射速🐎5恢复",
+	 "射速🐎10",
+	 "射速🐎10恢复",
+	 "返回主页",
+}, nil, "10只有部分武器可以，5全武器通用")
+if SN[1]==true then
+	 HS8()
+end
+if SN[2]==true then
+	 HS9()
+end
+if SN[3]==true then
+	 HS10()
+end
+if SN[4]==true then
+	 HS11()
+end
+if SN[5]==true then
+	 HS14()
+end
+FX1=0
+end
+
+function HS8()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("99999f;1F", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("0.2", gg.TYPE_FLOAT)
+	 gg.toast("开启成功🐎切换攻速前记得恢复")
+	 gg.clearResults()
+end
+
+function HS9()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("99999f;1F", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("0.2", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("1", gg.TYPE_FLOAT)
+	 gg.toast("恢复成功")
+	 gg.clearResults()
+end
+
+function HS10()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("99999f;1F", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("0.00001", gg.TYPE_FLOAT)
+	 gg.toast("开启成功🐎切换射速前记得恢复")
+	 gg.clearResults()
+end
+
+function HS11()
+	 gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("99999f;1F", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("-99", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("1", gg.TYPE_FLOAT)
+	 gg.toast("恢复成功")
+	 gg.clearResults()
+end
+
+function HS14()
+	 Main0()
+end
+
+function Main22()
+SN = gg.choice({
+	 "大厅开🐎",
+}, nil, "魔界岛穿墙进箱子图，不消耗电力，无限刷")
+if SN==1 then
+	 HS23()
+end
+FX1=0
+end
+
+function HS23()
+	 gg.clearResults()
+	 gg.setRanges(8)
+	 gg.searchNumber("0.0001F;100000F;0.01745329238F::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("0.0001", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("1", gg.TYPE_FLOAT)
+	 gg.toast("穿墙已开启")
+	 gg.clearResults()
+end
+
+function Main24()
+SN = gg.multiChoice({
+	 "要进图一次才能修改",
+	 "返回主页",
+}, nil, "")
+if SN[1]==true then
+	 HS2()
+end
+if SN[2]==true then
+	 HS3()
+end
+if SN[3]==true then
+	 HS40()
+end
+FX1=0
+end
+
+function HS2()
+  gg.clearResults()
+  gg.setRanges(gg.REGION_C_ALLOC)
+  gg.searchNumber('0D;1000;135D;744D::', gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.searchNumber('1000', gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+  gg.getResults(99)
+  gg.editAll('0.0123', gg.TYPE_FLOAT)
+  gg.toast('开启成功')
+  gg.clearResults()
+end
+
+function Main30()
+SN = gg.choice({
+	 "秒杀🐎开启",
+	 "秒杀🐎恢复",
+}, nil, "血量秒杀")
+if SN==1 then
+	 HS26()
+end
+if SN==2 then
+	 HS27()
+end
+FX1=0
+end
+
+function HS26()
+     gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("87D;1228D;1F;42D;756D::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("1", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("0", gg.TYPE_FLOAT)
+	 gg.toast("没效果去打一下木桩")
+	 gg.clearResults()
+end
+
+function HS27()
+     gg.clearResults()
+	 gg.setRanges(4)
+	 gg.searchNumber("87D;1228D;0F;42D;756D::", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.searchNumber("0", gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+	 gg.getResults(100)
+	 gg.editAll("1", gg.TYPE_FLOAT)
+	 gg.toast("恢复成功")
+	 gg.clearResults()
+end
+
+function HS15()
+	 os.exit()
+end
+
+
+
+while true do
+if gg.isVisible(true) then
+    FX1 = nil
+    gg.setVisible(false)
+  end
+  if FX1 == nil then
+    Main0()
+  end
+end
