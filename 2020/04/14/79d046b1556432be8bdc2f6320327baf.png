@@ -1,0 +1,182 @@
+
+
+function Main()
+  SN = gg.multiChoice({
+  "无CD",
+  "秒杀",
+  "无敌",
+  "技能秒杀",
+  "待添加",
+  "待添加",
+   "退出脚本"
+ }, nil, "浮云落祝你使用愉快QQ1013119464")
+  if SN == nil then
+  else
+  if SN[1] == true then
+   a()
+  end
+  if SN[2] == true then
+   b()
+  end
+  if SN[3] == true then
+   c()
+  end
+  if SN[4] == true then
+   d()
+  end
+  if SN[5] == true then
+   e()
+  end
+   if SN[6] == true then
+   f()
+  end
+    if SN[7] == true then
+   Exit()
+  end
+end
+  XGCK = -1
+end
+
+
+
+function a()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("130~140D;0~9D;8F::9", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("8", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(3)
+gg.editAll("0",gg.TYPE_FLOAT)
+gg.toast("稍等...........")
+gg.sleep(2000)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("130~140D;0~9D;7F::9", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("7", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(3)
+gg.editAll("0",gg.TYPE_FLOAT)
+gg.toast("无CD开启成功")
+end
+
+
+
+function b()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber("1;0.95;0.1::20",gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("1",gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(1)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("提示:开启成功")
+end
+
+
+
+function c()
+gg.clearResults()
+gg.setRanges(gg.REGION_C_ALLOC)
+gg.searchNumber("1;0.95;0.1::20",gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("1",gg.TYPE_FLOAT, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(2)
+gg.editAll("0",gg.TYPE_FLOAT)
+gg.toast("提示:开启成功")
+end
+
+
+
+
+
+function d()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1.88~1.20;2.18~2.20;2.56~2.58", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("1.88~1.20;2.18~2.20;2.56~2.58", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("稍等...........")
+gg.sleep(2000)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2.12~2.14;2.61~2.63;2.87~2.89", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("2.12~2.14;2.61~2.63;2.87~2.89", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("技能秒杀开启成功")
+end
+
+
+
+function e()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("3.98~4.00~4.50~4.52;4.96~4.98", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("3.98~4.00~4.50~4.52;4.96~4.98", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("稍等...........")
+gg.sleep(2000)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("3.74~3.76;5.07~5.09;5.39~5.41", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("3.74~3.76;5.07~5.09;5.39~5.41", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("稍等...........")
+gg.sleep(2000)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("6.26~6.28;4.16~4.18", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("6.26~6.28;4.16~4.18", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("剑士秒杀开启成功")
+end
+
+
+
+function f()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2.44~2.46;3.50~3.52;3.82~3.84", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("2.44~2.46;3.50~3.52;3.82~3.84", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("稍等...........")
+gg.sleep(2000)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("2.06~2.08;2.90~2.92;3.57~3.58", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("2.06~2.08;2.90~2.92;3.57~3.58", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.editAll("999999999",gg.TYPE_FLOAT)
+gg.toast("拳师秒杀开启成功")
+end
+
+
+
+function Exit()
+print("💪🤓💪")
+os.exit()
+end
+cs = "QQ1013119464"
+
+
+
+while true do
+  if gg.isVisible(true) then
+    XGCK = 1
+    gg.setVisible(false)
+  end
+  gg.clearResults()
+  if XGCK == 1 then
+    Main()
+  end
+end
+
+
+
+
+
+
+
+
+
