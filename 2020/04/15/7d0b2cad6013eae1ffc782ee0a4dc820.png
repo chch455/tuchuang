@@ -1,0 +1,1276 @@
+function yxxyz()
+dmpath="http://w.eydata.net/3abb15b32ea09f46"--"单码用户登陆"WebApi地址
+sjpath="http://w.eydata.net/10f9d1dcfbe477cc"--"获取用户的到期时间"WebApi地址
+ggpath="http://w.eydata.net/f372ad448158ca89"--"获取程序公告"WebApi地址
+banben="777"--程序版本
+code1=gg.makeRequest('http://www.baidu.com').content
+if code1==nil then gg.alert("网络请求请点击确定！") os.exit() end
+    lqSJ = math.random(1000000000,9999999999)
+ lqc=io.open('/storage/sdcard/Android/.nomedia_1','r')
+ if lqc == nil then
+   lqc=io.open('/storage/sdcard/Android/.system_int','w')
+   lqc:write(lqSJ*6-967)
+   lqc=io.open('/storage/sdcard/Android/.nomedia_1','w')
+   lqc:write(lqSJ*6-967)
+   lqd = io.open('/storage/sdcard/Android/.system_int','r')
+   lqdm = lqd:read('*a')
+   lqd:close()
+ else
+  abc=io.open('/storage/sdcard/Android/.system_int','w')
+  if abc == nil then
+   lqdd = io.open('/storage/sdcard/Android/.nomedia_1','r')
+   lqdmm = lqdd:read('*a')
+   lqdd:close()
+   lqd = io.open('/storage/sdcard/Android/.system_int','w')
+   lqd:write(lqdmm)
+   lqd:close()
+   end
+   lqd = io.open('/storage/sdcard/Android/.system_int','r')
+   lqdm = lqd:read('*a')
+   lqd:close()
+   lqdd = io.open('/storage/sdcard/Android/.nomedia_1','r')
+   lqdmm = lqdd:read('*a')
+   lqdd:close()
+   yanzheng = lqdm == lqdmm
+   if yanzheng == true then print("") else
+   lqd = io.open('/storage/sdcard/Android/.system_int','w')
+   lqd:write(lqdmm)
+   lqd:close()
+   end
+   lqd = io.open('/storage/sdcard/Android/.system_int','r')
+   lqdm = lqd:read('*a')
+   lqd:close()
+ end
+MAC = (lqdm + 967)/6
+ file=io.open("/storage/sdcard/Android/易游单码.yxx","r")
+ if file==nil then
+ file=io.open("/storage/sdcard/Android/易游单码.yxx","w")
+ single=""
+ else
+single = file:read("*a")
+file:close()
+end
+function POST(path,body)
+local code=gg.makeRequest(path,nil,body).content
+return code
+end
+function shiyi(code)
+    if code == "-1" then
+		gg.alert("网络链接失败.")
+	elseif code == "-2" then
+		gg.alert("请填写程序密钥.")
+	elseif code == "-3" then
+		gg.alert("数据异常.")
+	elseif code == "-4" then
+		gg.alert("数据异常.")
+	elseif code == "-5" then
+		gg.alert("错误的参数,请检查参数是否正确.")
+	elseif code == "-6" then
+		gg.alert("还未登录")
+	elseif code == "-7" then
+		gg.alert("私人服务器,没有权限进行登录.")
+	elseif code == "-8" then
+		gg.alert("账户余额不足.")
+	elseif code == "-9" then
+		gg.alert("注册用户达到上限.")
+	elseif code == "-10" then
+		gg.alert("VIP插件,非VIP无法使用.")
+	elseif code == "-11" then
+		gg.alert("开启自动状态检测失败,还未登陆!")
+	elseif code == "-12" then
+		gg.alert("开启自动状态检测失败!")
+	elseif code == "-13" then
+		gg.alert("动态算法只支持独立服务器调用.")
+	elseif code == "-14" then
+		gg.alert("错误的调用.")
+	elseif code == "-15" then
+		gg.alert("频繁调用,请等待10分钟后再做尝试.")
+	elseif code == "-16" then
+		gg.alert("接口未开启.")
+	elseif code == "-17" then
+		gg.alert("错误的调用方式,请确认后台接口的调用方式.")
+	elseif code == "-18" then
+		gg.alert("服务器内部错误,请联系管理员解决.")
+	elseif code == "-19" then
+		gg.alert("接口调用失败,调用次数不足.")
+	elseif code == "-20" then
+		gg.alert("变量数据不存在.")
+	elseif code == "-21" then
+		gg.alert("机器码一样,无需转绑.")
+	elseif code == "-23" then
+		gg.alert("此接口开启了强制算法,但是没使用.")
+	elseif code == "-101" then
+		gg.alert("用户名填写错误,必须以字母开头6-16位字母或数字!")
+	elseif code == "-102" then
+		gg.alert("用户不存在.")
+	elseif code == "-103" then
+		gg.alert("请先登陆再调用此方法.")
+	elseif code == "-104" then
+		gg.alert("密码填写错误,请输入6-16位密码!")
+	elseif code == "-105" then
+		gg.alert("邮箱填写错误,请正确输入邮箱!")
+	elseif code == "-106" then
+		gg.alert("用户名重复.")
+	elseif code == "-107" then
+		gg.alert("邮箱重复.")
+	elseif code == "-108" then
+		gg.alert("新密码输入错误.")
+	elseif code == "-109" then
+		gg.alert("用户名或密码错误")
+	elseif code == "-110" then
+		gg.alert("用户使用时间已到期")
+	elseif code == "-111" then
+		gg.alert("用户未在绑定的设备上登陆.")
+	elseif code == "-112" then
+		gg.alert("用户在别的地方登陆.")
+	elseif code == "-113" then
+		gg.alert("过期时间有误.")
+	elseif code == "-114" then
+		gg.alert("登录数据不存在")
+	elseif code == "-115" then
+		gg.alert("用户已被禁用.")
+	elseif code == "-116" then
+		gg.alert("密码修改申请过于频繁.")
+	elseif code == "-117" then
+		gg.alert("未输入机器码.")
+	elseif code == "-118" then
+		gg.alert("重绑次数超过限制.")
+	elseif code == "-119" then
+		gg.alert("使用天数不足,重绑失败.")
+	elseif code == "-120" then
+		gg.alert("注册失败,注册次数超过限制.")
+	elseif code == "-121" then
+		gg.alert("用户机器码不能超过32位.")
+	elseif code == "-122" then
+		gg.alert("用户已经被删除")
+	elseif code == "-123" then
+		gg.alert("用户密码输入错误")
+	elseif code == "-124" then
+		gg.alert("用户登录数达到最大")
+	elseif code == "-125" then
+		gg.alert("错误的用户操作类别")
+	elseif code == "-126" then
+		gg.alert("过期时间变更记录创建失败")
+	elseif code == "-127" then
+		gg.alert("用户充值失败")
+	elseif code == "-128" then
+		gg.alert("用户数据超过最大限制")
+	elseif code == "-129" then
+		gg.alert("用户被开发者禁止使用,请咨询开发者是否被拉到黑名单")
+	elseif code == "-131" then
+		gg.alert("用户使用次数不足")
+	elseif code == "-132" then
+		gg.alert("用户使用点数不足")
+	elseif code == "-201" then
+		gg.alert("程序不存在")
+	elseif code == "-202" then
+		gg.alert("程序密钥输入错误")
+	elseif code == "-203" then
+		gg.alert("程序版本号错误")
+	elseif code == "-204" then
+		gg.alert("程序版本不存在")
+	elseif code == "-205" then
+		gg.alert("用户未申请使用程序")
+	elseif code == "-206" then
+		gg.alert("程序版本需要更新")
+	elseif code == "-207" then
+		gg.alert("程序版本已停用")
+	elseif code == "-208" then
+		gg.alert("程序未开启后台接口功能.(可在“程序”的“修改”界面开启后台接口功能)")
+	elseif code == "-209" then
+		gg.alert("程序接口密码错误")
+	elseif code == "-210" then
+		gg.alert("程序停止新用户注册")
+	elseif code == "-211" then
+		gg.alert("程序不允许用户机器码转绑")
+	elseif code == "-301" then
+		gg.alert("卡密输入错误")
+	elseif code == "-302" then
+		gg.alert("卡密不存在")
+	elseif code == "-303" then
+		gg.alert("卡密已经使用")
+	elseif code == "-304" then
+		gg.alert("卡密已经过期")
+	elseif code == "-305" then
+		gg.alert("卡密已经冻结")
+	elseif code == "-306" then
+		gg.alert("卡密已经退换")
+	elseif code == "-308" then
+		gg.alert("卡密已经换卡")
+	elseif code == "-401" then
+		gg.alert("单码卡密错误")
+	elseif code == "-402" then
+		gg.alert("卡密已被使用")
+	elseif code == "-403" then
+		gg.alert("单码卡密IP错误")
+	elseif code == "-404" then
+		gg.alert("单码卡密类型错误")
+	elseif code == "-405" then
+		gg.alert("单码卡密被禁用")
+	elseif code == "-406" then
+		gg.alert("单码卡密不存在")
+	elseif code == "-407" then
+		gg.alert("单码卡密未激活")
+	elseif code == "-408" then
+		gg.alert("单码卡密已经使用")
+	elseif code == "-409" then
+		gg.alert("单码充值卡密错误")
+    elseif code == "-410" then
+		gg.alert("单码卡密过期")
+	elseif code == "-420" then
+		gg.alert("单码卡密在别的设备上登录")
+	elseif code == "-421" then
+		gg.alert("单码卡密超过最大登录数,如果确定已经下线,请等60分钟后重试")
+	elseif code == "-422" then
+		gg.alert("单码IP一样,无需转绑")
+	elseif code == "-501" then
+		gg.alert("单码管理信息错误")
+	elseif code == "-502" then
+		gg.alert("单码机器码转绑次数超过限制")
+	elseif code == "-503" then
+		gg.alert("单码机器码转绑后将过期")
+	elseif code == "-504" then
+		gg.alert("单码IP转绑次数超过限制")
+	elseif code == "-505" then
+		gg.alert("单码IP转绑后将过期")
+	elseif code == "-506" then
+		gg.alert("单码未开启机器码验证,无需转绑.")
+	elseif code == "-507" then
+		gg.alert("单码未开启IP地址验证,无需转绑")
+	elseif code == "101" then
+		gg.alert("充值成功!填写的推荐人不存在")
+	elseif code == "102" then
+		gg.alert("充值成功!填写推荐人获赠时间失败")
+	elseif code == "103" then
+		gg.alert("充值成功!添加推荐信息失败")
+	elseif code == "104" then
+		gg.alert("充值成功!推荐人获赠时间失败")
+	elseif code == "105" then
+		gg.alert("充值成功!充值的卡密类别不支持推荐人功能")
+	elseif code == "106" then
+		gg.alert("充值成功!充值的卡密类别推荐功能已关闭")
+	elseif code == "107" then
+		gg.alert("充值成功!成功使用推荐功能")
+	elseif code == "108" then
+		gg.alert("充值成功!但是填写的推荐人无效")
+	end
+end
+info=gg.prompt({'暮雪卡密系统请记住自己的卡密'}, {[1]=single}, {'text'})
+if info==nil then gg.alert("请输入卡密！") os.exit() end
+if info[1]==nil then gg.alert("请输入卡密！") os.exit() end
+code=POST(dmpath,"SingleCode=" .. info[1] .. "&Ver=" .. banben .. "&Mac=" .. MAC)
+if string.len(code)==32 then
+file=io.open("/storage/sdcard/Android/易游单码.yxx","w+")
+file:write(info[1])
+file:close()
+abc=1
+else
+shiyi(code)
+end
+if abc~=1 then os.exit() else
+time=POST(sjpath,"UserName=" ..info[1])
+gg.alert("暮雪祝您使用愉快，您的信赖是对我们最大的支持辅助到期时间为:"..time)
+gonggao=POST(ggpath,"")
+gg.alert(gonggao)
+end
+end
+yxxyz()
+
+function SearchWrite(Search, Write, Type)
+    gg.clearResults()
+    gg.setVisible(false)
+    gg.searchNumber(Search[1][1], Type)
+    local count = gg.getResultCount()
+    local result = gg.getResults(count)
+    gg.clearResults()
+    local data = {} 
+    local base = Search[1][2]
+   if (count > 0) then
+        for i, v in ipairs(result) do
+            v.isUseful = true 
+        end
+            for k=2, #Search do
+            local tmp = {}
+            local offset = Search[k][2] - base 
+            local num = Search[k][1]
+            for i, v in ipairs(result) do
+                tmp[#tmp+1] = {} 
+                tmp[#tmp].address = v.address + offset  
+                tmp[#tmp].flags = v.flags
+            end
+                tmp = gg.getValues(tmp)
+                for i, v in ipairs(tmp) do
+                if ( tostring(v.value) ~= tostring(num) ) then 
+                result[i].isUseful = false 
+             end
+          end
+      end
+             for i, v in ipairs(result) do
+             if (v.isUseful) then 
+             data[#data+1] = v.address
+         end
+     end
+           if (#data > 0) then
+           local t = {}
+           local base = Search[1][2]
+           for i=1, #data do
+               for k, w in ipairs(Write) do
+                  offset = w[2] - base
+                  t[#t+1] = {}
+                  t[#t].address = data[i] + offset           
+                  t[#t].flags = Type
+                  t[#t].value = w[1]
+                  if (w[3] == false) then
+                  local item = {} 
+                  item[#item+1] = t[#t]
+                  item[#item]. freeze = false
+                  gg.addListItems(item)
+                  if (w[4] == true) then
+                  local item = {} 
+                  item[#item+1] = t[#t]
+                  item[#item]. freeze = true
+                  gg.addListItems(item)
+               end
+           end
+       end
+   end
+           gg.setValues(t)
+           gg.toast(Name.."开启成功,共修改"..#t.."条数据")
+            else
+            gg.toast("开启失败", false)
+            return false
+        end
+    else
+            gg.toast("开启失败", false)
+            return false
+        end
+    end
+
+  function Main()
+    SN = gg.choice({
+      " 🐙战舞· 御水· 专区 ·",
+      " 🎉狂战· 剑士· 专区 ·",
+      " 🎃念弹· 念拳· 专区 ·",
+      " 🎐幻骑· 武神· 专区 ·",
+      " 👑特工· 枪械· 专区 ·",
+      " 🎈怪盗· 风行· 专区 ·",
+      " 🐙海战. 功能· 专区",
+      " 退出· 功能 ·"
+    }, nil, "暮雪科技，一图一开")
+    if SN == 5 then
+      THWJ()
+    end
+    if SN == 2 then
+      THWJ2()
+    end
+    if SN == 3 then
+      THWJ3()
+    end
+    if SN == 4 then
+      THWJ4()
+    end
+    if SN == 1 then
+      THWJ5()
+    end
+    if SN == 6 then
+      THWJ6()
+    end
+    if SN == 7 then
+      THWJ1()
+    end
+    if SN == 8 then
+      Exit()
+    end
+    XGCK = -1
+  end
+  
+  function THWJ()
+    SN = gg.multiChoice({
+      "全职无敌【副本开启】",
+      "🐙伙伴秒杀【副本开启】",
+      "①特工·麻痹弹·原地爆破·BBQ ·燃烧弹·自爆无人机·技能秒杀",
+      "②大枪·榴弹炮·多重榴弹炮·燃烧弹·格林扫射·技能秒杀"
+    }, nil, "使用技能秒杀前请先打开技能栏看下自己人物和辅助写的对应技能，必须用与辅助对应的技能才有效，【伙伴秒杀功能，副本开启，人物平A把怪定住，然后让伙伴打怪。随便按下技能即可解除定怪状态，幻界开启此功能时最好让队友断网，开好功能让队友再链网，不然可能功能会失效】 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a0()
+      end
+      if SN[2] == true then
+        aa()
+      end
+      if SN[3] == true then
+        a()
+      end
+      if SN[4] == true then
+        b()
+      end
+      if SN[5] == true then
+        b1()
+      end
+      if SN[6] == true then
+        a11()
+      end
+      if SN[7] == true then
+      end
+    end
+  end
+  
+  function THWJ2()
+    SN = gg.multiChoice({
+      "全职无敌【副本开启】",
+      "🐙伙伴秒杀【副本开启】",
+      "①狂战· 无影·虚空刃· 龙牙· 空牙· 地斩刀· 劫炎剑· 能秒杀",
+      "②剑士· 拔刀斩·流光·剑刃旋风·龙牙· 空牙· 技能秒杀",
+      "全职技能全屏【副本开启】"
+    }, nil, "使用技能秒杀前请先打开技能栏看下自己人物和辅助写的对应技能，必须用与辅助对应的技能才有效，【伙伴秒杀功能，副本开启，人物平A把怪定住，然后让伙伴打怪。随便按下技能即可解除定怪状态，幻界开启此功能时最好让队友断网，开好功能让队友再链网，不然可能功能会失效】 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a0()
+      end
+      if SN[2] == true then
+        aa()
+      end
+      if SN[3] == true then
+        a()
+      end
+      if SN[4] == true then
+        c()
+      end
+      if SN[5] == true then
+        c1()
+      end
+      if SN[6] == true then
+        a11()
+      end
+      if SN[7] == true then
+      end
+    end
+  end
+  
+  function THWJ3()
+    SN = gg.multiChoice({
+      "全职无敌【副本开启】",
+      "🐙伙伴秒杀【副本开启】",
+      "①念弹·念弹连射·炽阳·巨型念弹·落玉·多元弹射技·能秒杀",
+      "②念拳·气刃无影·气旋进发·瞬击·念弹连射·技能秒杀",
+      "全职技能全屏【副本开启】"
+    }, nil, "使用技能秒杀前请先打开技能栏看下自己人物和辅助写的对应技能，必须用与辅助对应的技能才有效，【伙伴秒杀功能，副本开启，人物平A把怪定住，然后让伙伴打怪。随便按下技能即可解除定怪状态，幻界开启此功能时最好让队友断网，开好功能让队友再链网，不然可能功能会失效】 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a0()
+      end
+      if SN[2] == true then
+        aa()
+      end
+      if SN[3] == true then
+        a()
+      end
+      if SN[4] == true then
+        d()
+      end
+      if SN[5] == true then
+        d1()
+      end
+      if SN[6] == true then
+        a11()
+      end
+      if SN[7] == true then
+      end
+    end
+  end
+  
+  function THWJ4()
+    SN = gg.multiChoice({
+      "全职无敌【副本开启】",
+      "🐙伙伴秒杀【副本开启】",
+      "①幻骑·四重轮回刃· 月光轮回· 星落六方斩· 孤星一掷· 技能秒杀",
+      "全职技能全屏【副本开启】"
+    }, nil, "使用技能秒杀前请先打开技能栏看下自己人物和辅助写的对应技能，必须用与辅助对应的技能才有效，【伙伴秒杀功能，副本开启，人物平A把怪定住，然后让伙伴打怪。随便按下技能即可解除定怪状态，幻界开启此功能时最好让队友断网，开好功能让队友再链网，不然可能功能会失效】 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a0()
+      end
+      if SN[2] == true then
+        aa()
+      end
+      if SN[3] == true then
+        a()
+      end
+      if SN[4] == true then
+        e()
+      end
+      if SN[5] == true then
+        a11()
+      end
+      if SN[6] == true then
+      end
+    end
+  end
+  
+  function THWJ5()
+    SN = gg.multiChoice({
+      "无敌· 全局加速，【副本开启】",
+      "🐙伙伴秒杀【副本开启】",
+      "①战舞·神通一式:穿云·神通三式:偃月·神通八式,云雀· 神通九式:乾坤· 技能秒杀",
+      "②御水·神通一式:穿云·神通九式:乾坤·双子旋风·技能秒杀",
+      "全职技能全屏【副本开启】"
+    }, nil, "使用技能秒杀前请先打开技能栏看下自己人物和辅助写的对应技能，必须用与辅助对应的技能才有效，【伙伴秒杀功能，副本开启，人物平A把怪定住，然后让伙伴打怪。随便按下技能即可解除定怪状态，幻界开启此功能时最好让队友断网，开好功能让队友再链网，不然可能功能会失效】 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a0()
+      end
+      if SN[2] == true then
+        aa()
+      end
+      if SN[3] == true then
+        a()
+      end
+      if SN[4] == true then
+        f1()
+      end
+      if SN[5] == true then
+        f2()
+      end
+      if SN[6] == true then
+        a11()
+      end
+      if SN[7] == true then
+      end
+    end
+  end
+  
+  function THWJ6()
+    SN = gg.multiChoice({
+      "无敌【副本开启】",
+      "🐙伙伴秒杀【副本开启】",
+      "①风行者·飞镖·狂风突袭·技能秒杀",
+      "②怪盗·飞镖·蔷薇之壁·技能秒杀",
+      "全职技能全屏【副本开启】"
+    }, nil, "使用技能秒杀前请先打开技能栏看下自己人物和辅助写的对应技能，必须用与辅助对应的技能才有效，【伙伴秒杀功能，副本开启，人物平A把怪定住，然后让伙伴打怪。随便按下技能即可解除定怪状态，幻界开启此功能时最好让队友断网，开好功能让队友再链网，不然可能功能会失效】 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a0()
+      end
+      if SN[2] == true then
+        aa()
+      end
+      if SN[3] == true then
+        a()
+      end
+      if SN[4] == true then
+        g()
+      end
+      if SN[5] == true then
+        g1()
+      end
+      if SN[6] == true then
+        a11()
+      end
+      if SN[7] == true then
+      end
+    end
+  end
+  
+  function THWJ1()
+    SN = gg.multiChoice({
+      "海战秒杀【副本开启】"
+    }, nil, "开启成功海战功能后移动下人物，然后按技能,具体技能自己试 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a13()
+      end
+      if SN[2] == true then
+      end
+    end
+  end
+  
+  function Main1()
+    SN = gg.multiChoice({
+      "㊙️过游戏检测【第一次打开游戏加载🐙数据时开启】"
+    }, nil, "此功能第一次打开游戏加载🐙数据时开启，开启后游戏不奔溃就代表成功，以后都不用再开 ")
+    if SN == nil then
+    else
+      if SN[1] == true then
+        a99()
+      end
+      if SN[2] == true then
+      end
+    end
+  end
+  
+  function a0()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {1, 0},
+      {1, 4}
+    }, {
+      {}
+    }, gg.TYPE_DWORD, "过检测")
+  end
+  
+  function aa()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {10, 0},
+      {0, 108},
+      {1065353216, 112}
+    }, {
+      {1072064102, 112}
+    }, gg.TYPE_DWORD, "CD减一半")
+  end
+  
+  function a()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {37, 0},
+      {1, 4},
+      {0, 8}
+    }, {
+      {5, 4}
+    }, gg.TYPE_DWORD, "无限伤害")
+  end
+  
+  function b()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {37, 0},
+      {5, 4},
+      {0, 8}
+    }, {
+      {1, 4}
+    }, gg.TYPE_DWORD, "无限关闭")
+  end
+  
+  function b1()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {256, 0},
+      {0, 4},
+      {1, 28}
+    }, {
+      {150, 28}
+    }, gg.TYPE_DWORD, "伙伴秒杀")
+  end
+  
+  function a11()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {16777216, 0},
+      {9, 68},
+      {1, 72},
+      {1065353216, 88}
+    }, {
+      {-1027080192, 88}
+    }, gg.TYPE_DWORD, "全职无敌")
+  end
+  
+  function a0()
+
+          gg.setRanges(32)
+      SearchWrite({
+          {100, 0},
+          {1, -164},
+          {1, -168},
+          {1, -452},
+          {1, -456},
+          {1, 24},
+          {2, 28},
+          {0, 32}
+        }, {
+          {3, 24}
+        }, gg.TYPE_DWORD, "全局定怪")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {100, 0},
+      {1, -164},
+      {1, -168},
+      {1, -452},
+      {1, -456},
+      {3, 24},
+      {2, 28},
+      {0, 32}
+    }, {
+      {1, 24}
+    }, gg.TYPE_DWORD, "全局定怪")
+  end
+  
+  function aa()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {256, 0},
+      {1065353216, -256}
+    }, {
+      {1106247680, -256}
+    }, gg.TYPE_DWORD, "Boss自杀")
+  end
+  
+  function a()
+gg.setRanges(32)
+gg.searchNumber("16,777,216D;5~100;1F", 16, false, gg.SIGN_EQUAL, 0, -1)
+gg.searchNumber("1", 16, false, gg.SIGN_EQUAL, 0, -1)
+gg.getResults(20000)
+gg.editAll("3016",16)
+gg.toast("海战秒杀开启成功")
+  end
+  
+  function d()
+
+                                     
+                    
+                          gg.setRanges(32)
+                      SearchWrite({
+                  {1117782016, 0},
+                  {1, -84},
+                  {1, -88}
+                }, {
+                  {35, -84}
+                }, gg.TYPE_DWORD, "麻痹弹")
+               
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1045220557, 0},
+              {1, 120},
+              {0, 132}
+            }, {
+              {30, 120}
+            }, gg.TYPE_DWORD, "原地爆破秒杀")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1066192077, 0},
+          {1, -20},
+          {1, -24}
+        }, {
+          {25, -20}
+        }, gg.TYPE_DWORD, "BBQ")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1067030938, 0},
+      {1, 212},
+      {0, 220}
+    }, {
+      {30, 212}
+    }, gg.TYPE_DWORD, "燃烧弹秒杀")
+  end
+  
+  function d1()
+
+                                     
+                    
+                          gg.setRanges(32)
+                      SearchWrite({
+                  {1094713344, 0},
+                  {1, 148},
+                  {0, 152}
+                }, {
+                  {30, 148}
+                }, gg.TYPE_DWORD, "榴弹炮秒杀")
+               
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1103626240, 0},
+              {1, -84},
+              {1, -88}
+            }, {
+              {8, -84}
+            }, gg.TYPE_DWORD, "多重榴弹炮秒杀")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1067030938, 0},
+          {1, 212},
+          {0, 220}
+        }, {
+          {30, 212}
+        }, gg.TYPE_DWORD, "燃烧弹秒杀")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1109393408, 0},
+      {1, 144},
+      {1, 148},
+      {0, 152}
+    }, {
+      {10, 148}
+    }, gg.TYPE_DWORD, "格林扫射")
+  end
+  
+  function a11()
+
+                                                               
+                        
+                                  gg.setRanges(32)
+                              SearchWrite({
+                      {1101004800, 0},
+                      {1, 144},
+                      {1, 148},
+                      {0, 152}
+                    }, {
+                      {30, 148}
+                    }, gg.TYPE_DWORD, "龙牙秒杀")
+                   
+                    
+                          gg.setRanges(32)
+                      SearchWrite({
+                  {1077097267, 0},
+                  {1065353216, 136},
+                  {1, 208},
+                  {1, 212},
+                  {1077097267, 232}
+                }, {
+                  {25, 212}
+                }, gg.TYPE_DWORD, "虚空刃秒杀")
+               
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1098907648, 0},
+              {1, 144},
+              {1, 148},
+              {1065353216, 168}
+            }, {
+              {15, 148}
+            }, gg.TYPE_DWORD, "地斩刀秒杀")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1067030938, 0},
+          {1, -252}
+        }, {
+          {30, -252}
+        }, gg.TYPE_DWORD, "空牙")
+       
+        
+  gg.setRanges(32)
+gg.searchNumber("1102577664;1075838976;1;1F", 4, false, gg.SIGN_EQUAL, 0, -1)
+ gg.searchNumber("1", 4, false, gg.SIGN_EQUAL, 0, -1)
+ gg.getResults(2000)
+ gg.editAll("204",4)
+ gg.toast("劫炎剑秒杀开启成功")
+  end
+  
+
+  
+  function a0()
+                  gg.setRanges(32)
+              SearchWrite({
+              {1063675494, 0},
+              {1, -20},
+              {1, -24}
+            }, {
+              {30, -20}
+            }, gg.TYPE_DWORD, "拔刀斩流光")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1101004800, 0},
+          {1, 144},
+          {1, 148},
+          {0, 152}
+        }, {
+          {30, 148}
+        }, gg.TYPE_DWORD, "龙牙秒杀")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1109917696, 0},
+      {1, 144},
+      {1, 148}
+    }, {
+      {30, 148}
+    }, gg.TYPE_DWORD, "剑刃旋风秒杀")
+  end
+  
+  function aa()
+
+                                                               
+                        
+                                  gg.setRanges(32)
+                              SearchWrite({
+                      {35, 0},
+                      {1.401298464324817E-45, 144},
+                      {1.401298464324817E-45, 148}
+                    }, {
+                      {3.643376E-44, 148}
+                    }, gg.TYPE_FLOAT, "多元弹射秒杀")
+                   
+                    
+                          gg.setRanges(32)
+                      SearchWrite({
+                  {1112014848, 0},
+                  {1, 376},
+                  {1, 380},
+                  {0, 384}
+                }, {
+                  {20, 380}
+                }, gg.TYPE_DWORD, "炽阳秒杀")
+               
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1115160576, 0},
+              {1, 148}
+            }, {
+              {30, 148}
+            }, gg.TYPE_DWORD, "巨型念弹")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1103101952, 0},
+          {1, 144},
+          {1, 148}
+        }, {
+          {5, 148}
+        }, gg.TYPE_DWORD, "落玉")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1056964608, 0},
+      {1065353216, 136},
+      {1, 208},
+      {1, 212},
+      {1056964608, 232}
+    }, {
+      {20, 212}
+    }, gg.TYPE_DWORD, "念弹连射秒杀")
+  end
+  
+  function a()
+
+                   
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {35, 0},
+              {1.401298464324817E-45, 144},
+              {1.401298464324817E-45, 148}
+            }, {
+              {3.6036357E-44, 148}
+            }, gg.TYPE_FLOAT, "四重轮回·星落六方斩·技能秒杀")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1106247680, 0},
+          {256, -4},
+          {1, -84},
+          {1, -88}
+        }, {
+          {35, -84}
+        }, gg.TYPE_DWORD, "孤星一掷")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1059481190, 0},
+      {1, -20}
+    }, {
+      {30, -20}
+    }, gg.TYPE_DWORD, "月光轮回秒杀")
+  end
+  
+  function e()
+
+                                     
+                    
+                          gg.setRanges(32)
+                      SearchWrite({
+                  {1100323226, 0},
+                  {1065353216, 72},
+                  {1, 144},
+                  {1, 148},
+                  {0, 152}
+                }, {
+                  {30, 148}
+                }, gg.TYPE_DWORD, "神通九式乾坤")
+               
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {65536, 0},
+              {0, -72},
+              {0, -76},
+              {1, -80},
+              {1, -84},
+              {0, -92}
+            }, {
+              {8, -80}
+            }, gg.TYPE_DWORD, "神通八式，云雀")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1.2999999523162842, 0},
+          {1.401298464324817E-45, 24},
+          {1.401298464324817E-45, 212},
+          {1.2999999523162842, 232}
+        }, {
+          {3.5828566E-44, 212}
+        }, gg.TYPE_FLOAT, "偃月秒杀")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1103626240, 0},
+      {1065353216, 72},
+      {1, 144},
+      {1, 148},
+      {0, 152},
+      {1065353216, 168}
+    }, {
+      {5, 148}
+    }, gg.TYPE_DWORD, "穿云秒杀")
+  end
+  
+  function a11()
+
+                   
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1070386381, 0},
+              {1101529088, 64},
+              {1, 208},
+              {1, 212},
+              {1065353216, 232}
+            }, {
+              {35, 212}
+            }, gg.TYPE_DWORD, "双子旋风")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1100323226, 0},
+          {1065353216, 72},
+          {1, 144},
+          {1, 148},
+          {0, 152}
+        }, {
+          {30, 148}
+        }, gg.TYPE_DWORD, "神通九式乾坤")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1103626240, 0},
+      {1065353216, 72},
+      {1, 144},
+      {1, 148},
+      {0, 152},
+      {1065353216, 168}
+    }, {
+      {5, 148}
+    }, gg.TYPE_DWORD, "穿云秒杀")
+  end
+  
+  function a0()
+
+                   
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1103626240, 0},
+              {1065353216, 72},
+              {1, 144},
+              {1, 148},
+              {0, 152},
+              {1065353216, 168}
+            }, {
+              {25, 148}
+            }, gg.TYPE_DWORD, "飞镖")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {30, 0},
+          {256, 32},
+          {1, 60},
+          {0, 64},
+          {1108082688, 76},
+          {1108082688, 76}
+        }, {
+          {30, 60}
+        }, gg.TYPE_DWORD, "狂风突袭")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1108082688, 0},
+      {0, -24},
+      {1, -12},
+      {1108082688, 4},
+      {0, 8},
+      {0, 16}
+    }, {
+      {15, -12}
+    }, gg.TYPE_DWORD, "普攻叠加")
+  end
+  
+  function aa()
+
+                   
+                
+                  gg.setRanges(32)
+              SearchWrite({
+              {1066192077, 0},
+              {1090519040, 64},
+              {1065353216, 136},
+              {1, 208},
+              {1, 212},
+              {0, 216},
+              {1064514355, 232}
+            }, {
+              {40, 212}
+            }, gg.TYPE_DWORD, "蔷薇之壁")
+           
+            
+          gg.setRanges(32)
+      SearchWrite({
+          {1108082688, 0},
+          {0, -24},
+          {1, -12},
+          {1108082688, 4},
+          {0, 8},
+          {0, 16}
+        }, {
+          {20, -12}
+        }, gg.TYPE_DWORD, "普攻叠加")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1103626240, 0},
+      {1065353216, 72},
+      {1, 144},
+      {1, 148},
+      {0, 152},
+      {1, 168}
+    }, {
+      {15, 148}
+    }, gg.TYPE_DWORD, "飞镖")
+  end
+  
+  function a()
+
+          gg.setRanges(32)
+      SearchWrite({
+          {1106247680, 0},
+          {1065353216, -64},
+          {0, -68},
+          {0, -72},
+          {0, -76},
+          {0, -80},
+          {1, -84},
+          {1, -88}
+        }, {
+          {24, -84}
+        }, gg.TYPE_DWORD, "气刃无影")
+       
+        
+  gg.setRanges(32)
+    
+    SearchWrite({
+      {1112014848, 0},
+      {1, -84},
+      {1, -88}
+    }, {
+      {35, -84}
+    }, gg.TYPE_DWORD, "瞬击")
+    SearchWrite({
+      {1056964608, 0},
+      {1065353216, 136},
+      {1, 208},
+      {1, 212},
+      {1056964608, 232}
+    }, {
+      {15, 212}
+    }, gg.TYPE_DWORD, "念弹连射秒杀")
+  end
+  
+  function f1()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {1065353216, 0},
+      {1, 76},
+      {1065353216, 96}
+    }, {
+      {5, 76}
+    }, gg.TYPE_DWORD, "全职倍攻开启成功")
+  end
+  
+  function f2()
+gg.setRanges(32)
+    
+    SearchWrite({
+      {1, 0},
+      {1065353216, -24},
+      {1, -48}
+    }, {
+      {1092616192, -24}
+    }, gg.TYPE_DWORD, "全屏攻击开启成功")
+  end
+  
+  
+
+function Exit()
+print("")
+os.exit()
+end
+cs = "暮雪科技，感谢使用！"
+
+
+
+while true do
+  if gg.isVisible(true) then
+    XGCK = 1
+    gg.setVisible(false)
+  end
+  gg.clearResults()
+  if XGCK == 1 then
+    Main()
+  end
+end
+
+
+
+
+
