@@ -1,0 +1,684 @@
+function jiuyan(qmnb,qmxg)gg.setVisible(false)gg.clearResults()qmnbv=qmnb[3]["value"]or qmnb[3][1]qmnbt=qmnb[3]["type"]or qmnb[3][2]qmnbn=qmnb[2]["name"]or qmnb[2][1]gg.setRanges(qmnb[1]["memory"]or qmnb[1][1])gg.searchNumber(qmnbv,qmnbt)gg.refineNumber(qmnbv,qmnbt)sz=gg.getResultCount()if sz==0 then gg.toast(qmnbn.."开启失败")else sl=gg.getResults(999999)for i=1,sz do pdsz=true for v=4,#qmnb do if pdsz==true then pysz={{}}pysz[1].address=sl[i].address+(qmnb[v]["offset"]or qmnb[v][2])pysz[1].flags=qmnb[v]["type"]or qmnb[v][3]szpy=gg.getValues(pysz)tzszpd=tostring(qmnb[v]["lv"]or qmnb[v][1]):gsub(",","")pyszpd=tostring(szpy[1].value):gsub(",","")if tzszpd==pyszpd then pdjg=true pdsz=true else pdjg=false pdsz=false end end end if pdjg==true then szpy=sl[i].address for x=1,#qmxg do xgsz=qmxg[x]["value"]or qmxg[x][1]xgpy=szpy+(qmxg[x]["offset"]or qmxg[x][2])xglx=qmxg[x]["type"]or qmxg[x][3]xgdj=qmxg[x]["freeze"]or qmxg[x][4]xg={{address=xgpy,flags=xglx,value=xgsz}}if xgdj==true then xg[1].freeze=xgdj gg.addListItems(xg)else gg.setValues(xg)end end xgjg=true end end if xgjg==true then gg.toast(qmnbn.."修改中,共修改1条数据")else gg.toast(qmnbn.."开启失败")end end end
+--放入第一行或功能顶部
+
+
+function Main()
+menu = gg.choice({
+'决斗场(防封和过保护都在这',
+'副本',
+'退出脚本'},
+2018,'qq群112556312恐龙那个啥你们没填邀请码填一下我的[呵呵]分享不易
+9ljvsv')
+if menu == 1 then A() end
+if menu == 2 then B() end
+if menu == 3 then Exit() end
+XGCK=-1
+end
+
+
+
+function A()
+menu1 = gg.multiChoice({
+'全屏',
+'防封第一步',
+'防封第二步',
+'防封第三部',
+'过保护',
+'2倍攻击(决斗场可用)',
+'100倍攻击(决斗场不可用)',
+'10倍可用',
+'14.5倍可用',
+'副功能名称10',
+'返回上一页'},
+nil,'群112556312恐龙那个啥你们没填邀请码填一下我的[呵呵]分享不易
+9ljvsv')
+if menu1 == nil then else
+if menu1[1] == true then a1() end
+if menu1[2] == true then a2() end
+if menu1[3] == true then a3() end
+if menu1[4] == true then a4() end
+if menu1[5] == true then a5() end
+if menu1[6] == true then a6() end
+if menu1[7] == true then a7() end
+if menu1[8] == true then a8() end
+if menu1[9] == true then a9() end
+if menu1[10] == true then a10() end
+if menu1[11] == true then HOME() end
+end
+GLWW=-1
+end
+
+
+
+function B()
+menu1 = gg.multiChoice({
+'暴击秒杀',
+'倍攻倍数搜索',
+'倍攻倍数调整',
+'微调伤害决斗场',
+'副功能名称5',
+'副功能名称6',
+'副功能名称7',
+'副功能名称8',
+'副功能名称9',
+'副功能名称10',
+'返回上一页'},
+nil,'群112556312恐龙那个啥你们没填邀请码填一下我的[呵呵]分享不易
+9ljvsv')
+if menu1 == nil then else
+if menu1[1] == true then b1() end
+if menu1[2] == true then b2() end
+if menu1[3] == true then b3() end
+if menu1[4] == true then b4() end
+if menu1[5] == true then b5() end
+if menu1[6] == true then b6() end
+if menu1[7] == true then b7() end
+if menu1[8] == true then b8() end
+if menu1[9] == true then b9() end
+if menu1[10] == true then b10() end
+if menu1[11] == true then HOME() end
+end
+GLWW=-1
+end
+
+
+
+function a1()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('3.2',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('3.2',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('5',gg.TYPE_FLOAT)
+gg.toast('火影全屏开启成功')
+end
+
+function a2()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('16384',gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('16384',gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('64',gg.TYPE_DWORD)
+gg.toast('防封第一步开启成功')
+end
+
+function a3()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('65538',gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('65538',gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('-1',gg.TYPE_DWORD)
+gg.toast('防封第二步开启成功')
+end
+
+function a4()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('16384',gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('16384',gg.TYPE_DWORD,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('-1',gg.TYPE_DWORD)
+gg.toast('防封第三部开启成功')
+end
+
+
+function b2()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('0.1;0.25;0.5;0.75;5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('0.1',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.getResults(99999999)
+gg.toast('搜索成功')
+end
+
+
+function b3()
+bg1=gg.prompt({'倍数修改(默认0.1):'}, {'0.1'}, {'number'})
+if bg1==nil then
+gg.toast("[状态]用户取消操作")
+else
+bg=bg1[1]
+gg.editAll(bg,gg.TYPE_FLOAT)
+gg.toast("[状态]修改完毕(请进入副本确认是否修改成功,如果不成功请再搜索一次并修改,如果还是不行就重启游戏)")
+end
+end
+
+
+
+
+function a7()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('0.1;0.25;0.5;0.75;5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('0.1',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('10',gg.TYPE_FLOAT)
+gg.toast('100倍开启成功')
+end
+
+
+
+function a8()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('0.1;0.25;0.5;0.75;5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('0.1;0.25;0.5;0.75;5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('1',gg.TYPE_FLOAT)
+gg.toast('10倍开启成功')
+end
+
+
+
+function a9()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('0.1;0.25;0.5;0.75;5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('0.1',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)	 jg=gg.getResults(100)
+	 sl=gg.getResultCount()
+	 for i = 1, sl do
+	 	 dzy=jg[i].address
+	 	 gg.addListItems({[1] = {address = dzy,flags =
+        gg.TYPE_FLOAT ,freeze = true,value = 1.45,}})
+end
+gg.toast('14.5倍攻击开启成功')
+
+
+
+function a10()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b1()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('1.5;2000:5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('1.5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('9000',gg.TYPE_FLOAT)
+gg.toast('暴击秒杀成功')
+end
+
+function a5()
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+gg.clearResults()
+gg.setRanges(gg.REGION_ANONYMOUS)
+gg.searchNumber("1", gg.TYPE_AUTO,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(100)
+end
+
+
+
+function a6()
+gg.clearResults()
+gg.setRanges(32)
+gg.searchNumber('0.1;0.25;0.5;0.75;5',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber('0.1',gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(510)
+gg.editAll('0.2',gg.TYPE_FLOAT)
+gg.toast('2倍开启成功')
+end
+
+
+function b4()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("0.1;0.25;0.5;0.75;5", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("0.1", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("1.4",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b5()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b6()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b7()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b8()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b9()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function b10()
+gg.clearResults()
+gg.setRanges(gg.REGION_BAD)
+gg.searchNumber("搜索数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.searchNumber("改善数值", gg.TYPE_FLOAT,false,gg.SIGN_EQUAL,0, -1)
+gg.getResults(10)
+gg.editAll("修改数值",gg.TYPE_FLOAT)
+gg.toast("开启成功")
+end
+
+
+
+function Exit()
+print("qq群112556312")
+os.exit()
+end
+
+
+
+function HOME()
+lw=1
+Main()
+end
+
+
+
+cs = '112556312群qq群'
+while(true)do
+if gg.isVisible(true) then
+XGCK=1
+gg.setVisible(false)
+end
+gg.clearResults()
+if XGCK==1 then
+Main()
+end
+end
+
+
+
+
+
+
+
+
+
+
