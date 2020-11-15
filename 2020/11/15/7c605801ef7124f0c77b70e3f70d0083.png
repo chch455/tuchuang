@@ -1,0 +1,126 @@
+function exit()
+  os.exit();
+  while true do
+    _ENV = nil
+  end
+end
+function Decryption(Text)
+  return Text:gsub('..', function(i)
+    return string.char((tonumber(i,16))%256);
+  end)
+end
+local cloud = {}
+cloud["网站"]="http://gstygl.online/";
+cloud["网盘"]="http://wenyi.site/";
+cloud["账号"]="xiaoyi99";
+cloud["菜单"]={["单选"]=gg.choice,["多选"]=gg.multiChoice}
+cloud["提示"]={["打印"]=print,["警告"]=gg.alert,["弹窗"]=gg.toast}
+function post(url, headers, data)
+  if(url and type(url)=="string")then
+    Judge=gg.makeRequest(url, headers, data);
+    if not Judge or Judge == "The user did not allow access to the Internet." then
+      return exit(print("错误: 连接网络失败"));
+     else
+      return Judge;
+    end
+  end
+end
+function post(url, headers, data)
+  if(url and type(url)=="string")then
+    Judge=gg.makeRequest(url, headers, data);
+    if not Judge or Judge == "The user did not allow access to the Internet." then
+      -- |如果连接失败退出脚本提示内容|
+      return exit(cloud["提示"]["打印"]("错误: 连接网络失败"));
+     else
+      return Judge; -- |返回|
+    end
+  end
+end
+function HttpCode(num)
+  if type(num)=="number" then
+    if num==200 then
+      return "请求成功";
+      -- |以下为常见http状态码|
+     elseif num==202 then
+      return exit(cloud["提示"]["弹窗"]("服务器已接受请求，但尚未处理"));
+     elseif num==301 then
+      return exit(cloud["提示"]["弹窗"]("资源（网页等）被永久转移到其它URL"));
+     elseif num==302 then
+      return exit(cloud["提示"]["弹窗"]("请求的资源现在临时从不同的 URI 响应请求"));
+     elseif num==400 then
+      return exit(cloud["提示"]["弹窗"]("请求无效"));
+     elseif num==404 then
+      return exit(cloud["提示"]["弹窗"]("请求的资源（网页等）不存在"));
+     elseif num==408 then
+      return exit(cloud["提示"]["弹窗"]("请求超时"));
+     elseif num==500 then
+      return exit(cloud["提示"]["弹窗"]("内部服务器错误"));
+    end
+   else
+    return exit(cloud["提示"]["打印"]("连接异常"));
+  end
+end
+function Getlink(md5)
+  local link=cloud["网盘"].."/down.php/"..md5..".lua"
+  if md5:len()==32 then
+    get=post(link)
+    if HttpCode(get.code)=="请求成功" then
+      return get.content
+    end
+   else
+    return exit(print("配置错误!"))
+  end
+end
+post('http://www.baidu.com');--检测网络状态
+post('http://gstykm.top/');--检测云更网络状态
+post(cloud["网盘"]);--检测脚本网络状态
+content = post(cloud["网站"].."jc.php?uid="..cloud["账号"]).content
+status = content:match("远程开关:【(.-)】")=="关";
+pass_check=content:match("远程密码:【(.-)】")=="开";
+if(status==true)then
+  os.exit(cloud["提示"]["打印"]("已关闭使用"));
+ else
+pass="";
+if(pass_check==true)then
+password=gg.prompt({"密码"},{mma},{"text"});
+pass=password[1];
+end
+  api = gg.makeRequest(cloud["网站"].."api.php?uid="..cloud["账号"].."&mm="..pass).content
+  if api=="已开启密码验证" then
+    exit(cloud["提示"]["警告"]("作者已开启密码验证"))
+   elseif api=="已远程关闭" then
+    exit(cloud["提示"]["警告"]("作者已关闭使用"))
+   elseif api=="密码错误" then
+    exit(cloud["提示"]["警告"]("错误"))
+  end
+  cloud["提示"]["弹窗"]("已成功连接脚本")
+  open=api:match("打开次数:【(.-)】") --打开次数
+  online=api:match("在线人数:【(.-)】") --在线人数
+  inform=Decryption(api:match("公告:【(.-)】")) --远程公告
+  item=api:match("脚本区域截取:{(.-)}")
+  lua_table={}
+  lua_table.name = {}
+  lua_table.message = {}
+  script_name=string.gmatch(item,"...:【(.-)】")
+  script_link=string.gmatch(item,"....:<(.-)>")
+  for v in script_name do--获取脚本名
+   lua_table.name[#lua_table.name + 1] = Decryption(v)
+   lua_table.message[#lua_table.message + 1] = Decryption(script_link())
+  end
+  lua_table.name[#lua_table.name + 1] = "退出脚本"
+  function REMain()
+   menu = gg.choice(lua_table.name,nil,"欢迎使用皇军云系统\n当前在线人数:"..online.."人\n全网累计打开:"..open.."次\n公告:"..inform)
+     if menu then
+      if menu==#lua_table.name then
+        exit(print("期待您的下次使用"))
+      end
+       pcall(load(Getlink(lua_table.message[menu])))
+      end
+     end
+  while(true)do
+    if gg.isVisible() then
+      gg.setVisible(false)
+      REMain()
+    end
+  end
+end
