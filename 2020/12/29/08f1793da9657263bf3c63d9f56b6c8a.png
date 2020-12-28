@@ -1,0 +1,142 @@
+-- 原创by.鹿十七 转发时请留下本行作为版权 谢谢
+function Y()--捕获随机古诗词
+local Q=gg.makeRequest("http://xkzzz.com/post/17059.html").content
+local Q=Q:match('</strong></p><p>(.+)</p><p><br/></p><a')
+local Q=Q:gsub('</p><p>','\n')
+local Y=math.random(1,10)
+local Q=Q:match(Y..'、(.-)》')
+local Q=Q:gsub("____","\n\n——")
+return Q
+end
+
+function T()--原创随机一言
+local Y=gg.makeRequest("https://v1.hitokoto.cn/").content
+local Q=string.match(Y,'hitokoto(.+)type')
+local F=string.gsub(Q,'":"',"")
+local KY=string.gsub(F,'","',"")
+return KY
+end
+
+--这里是QQ空间链接存放区域
+A = gg.makeRequest(
+        "https://h5.qzone.qq.com/ugc/share?sharetag=4C68724B449A6AB8E2FC20941773E768&jumptoqzone=1&bp7=&bp2=&bp1=&_wv=1&g_f=2000000103&no_topbar=1&res_uin=1796428929&appid=311&cellid=8154136b571ee75f50950a00&subid=&g_ut=3&plg_dev=1&plg_usr=1&g_ut=3&plg_auth=1&plg_nld=1&no_topbar=1&plg_nld=1&plg_uin=1&from=mp")
+        .content
+
+--核心匹配区域
+gxlj=A:match("【更新链接】(.-)【更新链接】")
+zuixin=A:match("【更新版本】(.-)【更新版本】")
+kaiguan = A:match("【开关】(.-)【开关】") -- 开关控制脚本
+gonggao = A:match("【公告】(.-)【公告】") -- 捕获公告
+jiaoben = A:match("【脚本名称】(.-)【脚本名称】") -- 捕获脚本名称
+gengxin = A:match("【更新公告】(.-)【更新公告】") -- 捕获更新公告
+lianjie = A:match("【脚本链接】(.-)【脚本链接】")--获取云更新链接
+zuoze = A:match('data%-params%="%d*">(.-)</span></p><p') -- 捕捉作者
+dianzan = A:match("等(.-)人觉得很赞") -- 获取点赞数量
+if dianzan==nil then
+dianzan=0
+end
+liulan = A:match("浏览(.-)次") -- 获取浏览次数
+shijian = A:match('class%="time">(.-)</span></p></div>') -- 获取发布时间
+
+tab = {} -- 存放用户评论的表
+tab1 = {} -- 存放用户评论的qq
+tab2 = {}
+for yonghu in A:gmatch('reply%.line">(.-)</div><div') do -- 获取用户的评论
+    -- tab[#yonghu + 1] = yonghu
+    tab[#tab + 1] = yonghu
+    -- table.insert(tab, yonghu)
+end
+
+for QQ in A:gmatch('data%-params%="(%d*)">') do -- 获取评论用户qq
+    tab1[QQ] = 1 -- 使用数据作为 key ,这样即使重复了,也只有一个值
+end
+
+for k, v in pairs(tab1) do
+    -- 把key转为值
+    tab2[#tab2 + 1] = k
+end
+tab1 = tab2
+tab2 = nil
+
+-- 判断脚本是否开放?
+while kaiguan ~= "开" do
+    print("该脚本暂未开放")
+    os.exit()
+end
+
+--判断自身脚本是否有更高版本
+dqbb="3.0"--这是属于当前版本的
+while dqbb<zuixin do--这是判断当前版本是否有更高版本，如果有则进行操作
+
+panduan=gg.alert("更新公告为:"..gengxin.."\n\n检测到您使用的还是"..dqbb.."版本\n而最新版本则是"..zuixin.."版本是否进行更新？","我不","马上更新")
+while panduan==1 do
+print("检测到您使用的还是低版本，请更新")
+os.exit()
+end
+
+if panduan==2 then
+
+re=''
+for ww in gxlj:gmatch("%d+") do
+    re=re..string.char(ww)
+end
+
+R,error=gg.makeRequest(re).content
+
+while R~=nil do
+io.open(jiaoben.."更新.lua","w"):write(R)--这里的名字就是你的脚本名
+print("脚本已更新，请在当前目录查看")
+os.exit()
+end
+
+while R==nil do
+print("网络链接发生错误！请联系作者！"..error)
+os.exit()
+end
+end
+end
+
+
+
+::T_::
+lsq = gg.choice({
+"❤运行脚本❤",
+"❤是否查看用户评论？❤", 
+"❤是否查看评论用户QQ？❤",
+"❤退出❤"
+}, nil,"❤随机一言:"..T().."❤\n\n"..Y().."》\n\n❤当前云脚本名称为:" .. jiaoben .. "❤\n❤当前公告为:" .. gonggao .. "❤\n❤当前脚本作者:" .. zuoze .. "❤\n" .. "❤发布时间" .. shijian .. "❤\n❤脚本总共被打开" .. liulan .. "次❤\n" .. "❤共有" .. dianzan .. "人为本脚本点赞❤\n".."❤总共捕获了"..(#tab).."条用户评论❤\n".."❤总共捕获了"..(#tab1).."条评论用户的qq❤")
+
+if lsq == nil then
+    goto T_
+end
+if lsq == 1 then
+    goto Y
+end
+if lsq == 2 then
+    goto Y_
+end
+if lsq == 3 then
+    goto Y__
+end
+if lsq == 4 then
+    os.exit()
+end
+
+-- 假设不是用链接的脚本就把这两行给删了放上你的脚本就OK
+::Y::
+result=''
+for w in lianjie:gmatch("%d+") do
+    result=result..string.char(w)
+end
+yunxing = load(gg.makeRequest(result).content)
+pcall(yunxing)
+
+goto T_
+
+::Y_::
+gg.choice(tab, "", "❤当前共有" .. (#tab) .. "条评论❤")
+goto T_
+
+::Y__::
+gg.choice(tab1, "", "❤当前共有" .. (#tab1) .. "个人的qq进行了评论❤")
+goto T_
